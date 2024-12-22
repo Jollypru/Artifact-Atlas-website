@@ -9,3 +9,12 @@
     font-weight: 400;
     font-style: normal;
   }
+
+  li> .active{
+    text-decoration: underline;
+    color: blueviolet;
+  }
+  
+  body{
+    color: white;
+  }
