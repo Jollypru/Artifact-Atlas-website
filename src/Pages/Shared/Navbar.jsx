@@ -4,22 +4,33 @@ import { AuthContext } from '../../providers/AuthProvider';
 
 const Navbar = () => {
 
-    const {user, logoutUser} = useContext(AuthContext);
+    const { user, logoutUser } = useContext(AuthContext);
 
     const links = <>
         <li><NavLink to='/'>Home</NavLink></li>
         <li><NavLink to='/all-Artifacts'>All Artifacts</NavLink></li>
         <li><NavLink to='/add-Artifacts'>Add Artifacts</NavLink></li>
+        {
+            user ?
+                <li className='relative group'>
+                    <NavLink to='/myProfile'>My Profile</NavLink>
+                    <ul className='absolute hidden group-hover:block w-40 ml-2'>
+                        <li className='hover:text-purple-400'><NavLink to='/myArtifacts'>My Artifacts</NavLink></li>
+                        <li className='hover:text-purple-400'><NavLink to='/likedArtifacts'>Liked Artifacts</NavLink></li>
+                    </ul>
+                </li>
+                : ''
+        }
     </>
 
     const handleLogout = () => {
         logoutUser()
-        .then(()=> {
-            console.log('Logged out successfully');
-        })
-        .catch(error => {
-            console.log(error);
-        })
+            .then(() => {
+                console.log('Logged out successfully');
+            })
+            .catch(error => {
+                console.log(error);
+            })
     }
     return (
         <div className="navbar bg-base-100">
@@ -42,23 +53,24 @@ const Navbar = () => {
                     <ul
                         tabIndex={0}
                         className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
-                       {links}
+                        {links}
                     </ul>
                 </div>
                 <a className="btn btn-ghost text-xl">Artifact Atlas</a>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="flex gap-5 px-1">
-                   {links}
+                    {links}
                 </ul>
             </div>
             <div className="navbar-end">
                 {
-                    user ? <>
-                    <button onClick={handleLogout} className='bg-purple-500 px-5 py-1 rounded-md text-white'>Logout</button>
-                    </> : <>
-                    <Link to='/login'><button className='bg-purple-500 px-5 py-1 rounded-md text-white'>Login</button></Link>
-                    </>
+                    user ? <div className='flex gap-3'>
+                        <img src={user.photoURL} title={user.displayName} alt="" className='w-10 h-10 rounded-full' />
+                        <button onClick={handleLogout} className='bg-purple-500 px-5 py-1 rounded-md text-white'>Logout</button>
+                    </div> : <div>
+                        <Link to='/login'><button className='bg-purple-500 px-5 py-1 rounded-md text-white'>Login</button></Link>
+                    </div>
                 }
             </div>
         </div>

@@ -1,17 +1,24 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../../providers/AuthProvider';
+import { toast } from 'react-toastify';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const GoogleLogin = () => {
-    const {googleLogin} = useContext(AuthContext);
+    const { googleLogin } = useContext(AuthContext);
+    const location = useLocation();
+    const navigate = useNavigate();
+    const from = location.state || '/';
 
     const handleGoogleLogin = () => {
         googleLogin()
-        .then(result => {
-            console.log(result.user);
-        })
-        .catch(error => {
-            console.log(error.message);
-        })
+            .then(result => {
+                console.log(result.user);
+                toast.success('Login Successful')
+                navigate(from);
+            })
+            .catch(error => {
+                console.log(error.message);
+            })
     }
     return (
         <div>
