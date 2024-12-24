@@ -15,6 +15,13 @@ const MyArtifacts = () => {
             })
     }, [user.email])
 
+    // const handleDelete = (_id) => {
+    //     fetch(`http://localhost:5000/artifacts/${_id}`,{
+    //         method: 'DELETE'
+    //     })
+
+    // }
+
     return (
         <div className="overflow-x-auto">
             <h3 className='text-center text-3xl font-bold my-5'>My Added Artifacts</h3>
