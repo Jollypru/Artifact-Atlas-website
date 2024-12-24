@@ -1,13 +1,14 @@
 import React, { useContext, useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
+import { toast } from 'react-toastify';
 
 const ArtifactDetails = () => {
     const artifacts = useLoaderData();
     const { _id, artifactName, artifactImage, artifactType, historicalContext, createdAt, discoveredAt, discoveredBy, presentLocation,
         likeCount: initialLikeCount } = artifacts;
     
-    const {user} = useContext(AuthContext);
+    const {user, loading} = useContext(AuthContext);
     const [likeCount, setLikeCount] = useState(initialLikeCount || 0);
     const [isLiked, setIsLiked] = useState(false);
 
@@ -28,7 +29,12 @@ const ArtifactDetails = () => {
             .then(res => res.json())
             .then(data => {
                 console.log('like count updated:', data);
+                toast.success(`You have liked ${artifactName} `)
             })
+    }
+
+    if(loading){
+        return <span className="loading loading-spinner loading-lg"></span>
     }
     return (
         <div className='flex flex-col md:flex-row gap-5 w-11/12 lg:w-2/3 mx-auto bg-purple-200 p-5 lg:p-8 my-6 rounded-md'>

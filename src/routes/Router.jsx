@@ -11,11 +11,13 @@ import LikedArtifacts from "../Pages/MyProfile/LikedArtifacts";
 import ArtifactDetails from "../Pages/AllArtifacts/ArtifactDetails";
 import MyArtifacts from "../Pages/MyProfile/MyArtifacts";
 import UpdateArtifact from "../Pages/UpdateArtifact/UpdateArtifact";
+import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 
 const router = createBrowserRouter([
     {
       path: "/",
       element: <MainLayout></MainLayout>,
+      errorElement: <ErrorPage></ErrorPage>,
       children:[
         {
             path: '/',
