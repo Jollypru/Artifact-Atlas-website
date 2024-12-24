@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../providers/AuthProvider';
 import ArtifactsCard from '../AllArtifacts/ArtifactsCard';
+import { Helmet } from 'react-helmet';
 
 const LikedArtifacts = () => {
     const { user } = useContext(AuthContext);
@@ -25,6 +26,7 @@ const LikedArtifacts = () => {
 
     return (
         <div className="container mx-auto my-6 p-5">
+            <Helmet><title>Liked Artifacts | Artifact Atlas</title></Helmet>
             <h1 className="text-3xl font-semibold text-center mb-5">Liked Artifacts</h1>
             {likedArtifacts.length === 0 ? (
                 <p className='text-center text-xl'>No liked artifacts found. Start liking some artifacts!</p>

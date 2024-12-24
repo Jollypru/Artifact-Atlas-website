@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../../providers/AuthProvider';
 import Swal from 'sweetalert2';
+import { Helmet } from 'react-helmet';
 
 const AddArtifacts = () => {
     const {user} = useContext(AuthContext);
@@ -34,7 +35,8 @@ const AddArtifacts = () => {
     }
     return (
         <div>
-            <h1 className='text-center text-3xl font-bold my-5'>Add an Artifacts</h1>
+            <Helmet><title>Add Artifact | Artifact Atlas</title></Helmet>
+            <h1 className='text-center text-3xl font-bold my-5'>Add an Artifact</h1>
             <form onSubmit={handleAddArtifact} className='w-4/5 mx-auto bg-violet-300 p-5 px-10 rounded-md'>
                 <div className="form-control">
                     <label className="label">

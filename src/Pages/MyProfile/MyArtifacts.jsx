@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../providers/AuthProvider';
 import { NavLink, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import { Helmet } from 'react-helmet';
 
 const MyArtifacts = () => {
     const { user } = useContext(AuthContext);
@@ -58,6 +59,7 @@ const MyArtifacts = () => {
 
     return (
         <div className="overflow-x-auto">
+            <Helmet><title>My Artifacts | Artifact Atlas</title></Helmet>
             <h3 className='text-center text-3xl font-bold my-5'>My Added Artifacts</h3>
             {
                 myArtifacts.length === 0 ? (

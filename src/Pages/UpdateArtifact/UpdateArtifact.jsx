@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Helmet } from 'react-helmet';
 import { useNavigate, useParams } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
@@ -43,6 +44,7 @@ const UpdateArtifact = () => {
     }
     return (
         <div>
+            <Helmet><title>Update Artifact | Artifact Atlas</title></Helmet>
             <h1 className='text-center text-3xl font-bold my-5'>Update Artifact</h1>
             <form onSubmit={handleUpdate} className='w-4/5 mx-auto bg-violet-300 p-5 px-10 rounded-md'>
                 <div className="form-control">

@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
 import { toast } from 'react-toastify';
+import { Helmet } from 'react-helmet';
 
 const ArtifactDetails = () => {
     const artifacts = useLoaderData();
@@ -38,6 +39,7 @@ const ArtifactDetails = () => {
     }
     return (
         <div className='flex flex-col md:flex-row gap-5 w-11/12 lg:w-2/3 mx-auto bg-purple-200 p-5 lg:p-8 my-6 rounded-md'>
+            <Helmet><title>Artifact Details | Artifact Atlas</title></Helmet>
             <div className='md:w-1/2'>
                 <img className='h-60 w-full rounded-md' src={artifactImage} alt="" />
             </div>

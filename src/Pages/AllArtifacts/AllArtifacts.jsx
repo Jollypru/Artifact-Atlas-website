@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import ArtifactsCard from './ArtifactsCard';
+import { Helmet } from 'react-helmet';
 
 const AllArtifacts = () => {
     const [artifacts, setArtifacts] = useState([]);
@@ -16,6 +17,9 @@ const AllArtifacts = () => {
 
     return (
         <div>
+            <Helmet>
+                <title>All Artifacts | Artifact Atlas</title>
+            </Helmet>
             <h2 className='text-center text-3xl font-bold my-5'>All Artifacts</h2>
             {
                 loading ? (

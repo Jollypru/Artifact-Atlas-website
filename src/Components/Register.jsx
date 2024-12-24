@@ -4,6 +4,7 @@ import { AuthContext } from '../providers/AuthProvider';
 import GoogleLogin from '../Pages/Shared/GoogleLogin';
 import { toast } from 'react-toastify';
 import { updateProfile } from 'firebase/auth';
+import { Helmet } from 'react-helmet';
 
 
 const Register = () => {
@@ -64,6 +65,7 @@ const Register = () => {
 
     return (
         <div className="hero bg-base-300 py-5">
+            <Helmet><title>Register | Artifact Atlas</title></Helmet>
             <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl pt-5">
                 <h1 className="text-3xl font-bold text-center">Register now!</h1>
                 <form onSubmit={handleRegister} className="card-body">
