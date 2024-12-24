@@ -1,11 +1,13 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
+import { AuthContext } from '../../providers/AuthProvider';
 
 const ArtifactDetails = () => {
     const artifacts = useLoaderData();
     const { _id, artifactName, artifactImage, artifactType, historicalContext, createdAt, discoveredAt, discoveredBy, presentLocation,
         likeCount: initialLikeCount } = artifacts;
-
+    
+    const {user} = useContext(AuthContext);
     const [likeCount, setLikeCount] = useState(initialLikeCount || 0);
     const [isLiked, setIsLiked] = useState(false);
 
@@ -21,7 +23,7 @@ const ArtifactDetails = () => {
             headers: {
                 'content-type': 'application/json'
             },
-            body: JSON.stringify({ likeCount: updateLikeCount })
+            body: JSON.stringify({ likeCount: updateLikeCount , userEmail: user.email})
         })
             .then(res => res.json())
             .then(data => {
