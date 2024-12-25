@@ -9,6 +9,7 @@ const Login = () => {
 
     const {loginUser} = useContext(AuthContext);
     const location = useLocation();
+    console.log('in login page', location);
     const navigate = useNavigate();
     const from = location.state || '/';
 
@@ -21,7 +22,7 @@ const Login = () => {
         loginUser(email, password)
         .then(result => {
             console.log('sign in successful',result.user);
-             toast.success('Successfully logged in.');
+            toast.success('Successfully logged in.');
             navigate(from);
         })
         .catch(error => {

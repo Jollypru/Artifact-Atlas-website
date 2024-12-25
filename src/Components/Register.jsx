@@ -49,7 +49,7 @@ const Register = () => {
                 const user = result.user;
                 updateProfile(user, {
                     displayName: name,
-                    photoURL: photoURL
+                    photoURL: photo
                 })
                     .then(() => {
                         console.log(result.user);
@@ -59,7 +59,7 @@ const Register = () => {
             })
             .catch(error => {
                 console.log(error.message);
-                toast.error('Registration failed. Please try again.')
+                toast.error(`${error.message}Registration failed. Please try again.`)
             })
     }
 
