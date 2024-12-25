@@ -3,19 +3,32 @@ import { AuthContext } from '../../providers/AuthProvider';
 import { NavLink, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { Helmet } from 'react-helmet';
+import axios from 'axios';
+import useAxiosSecure from '../../hooks/useAxiosSecure';
 
 const MyArtifacts = () => {
     const { user } = useContext(AuthContext);
     const [myArtifacts, setMyArtifacts] = useState([]);
     const navigate = useNavigate();
 
+    const axiosSecure = useAxiosSecure();
+
     useEffect(() => {
-        fetch(`http://localhost:5000/myAddedArtifacts?email=${user.email}`)
-            .then(res => res.json())
-            .then(data => {
-                // console.log(data);
-                setMyArtifacts(data);
-            })
+        // fetch(`http://localhost:5000/myAddedArtifacts?email=${user.email}`)
+        //     .then(res => res.json())
+        //     .then(data => {
+        //         // console.log(data);
+        //         setMyArtifacts(data);
+        //     })
+
+        // axios.get(`http://localhost:5000/myAddedArtifacts?email=${user.email}}`,{withCredentials: true})
+        // .then(res => {
+        //     console.log(res.data);
+        //     setMyArtifacts(res.data)})
+
+        axiosSecure.get(`/myAddedArtifacts?email=${user.email}`)
+        .then(res => setMyArtifacts(res.data))
+
     }, [user.email])
 
     const handleDelete = (_id) => {
