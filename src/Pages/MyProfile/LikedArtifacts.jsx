@@ -2,25 +2,27 @@ import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../providers/AuthProvider';
 import ArtifactsCard from '../AllArtifacts/ArtifactsCard';
 import { Helmet } from 'react-helmet';
+import axios from 'axios';
+import useAxiosSecure from '../../hooks/useAxiosSecure';
 
 const LikedArtifacts = () => {
     const { user } = useContext(AuthContext);
     const [likedArtifacts, setLikedArtifacts] = useState([]);
     const [loading, setLoading] = useState(true);
+    const axiosSecure = useAxiosSecure();
 
     useEffect(() => {
         if (user) {
-            fetch(`http://localhost:5000/artifacts/liked/${user.email}`)
-                .then(res => res.json())
-                .then(data => {
-                    console.log('artifact data',data);
-                    setLikedArtifacts(data);
-                    setLoading(false);
-                })
-                .catch(error => {
-                    console.log(error.message);
-                    setLoading(false);
-                })
+            axiosSecure.get(`artifacts/liked/${user.email}`)
+            .then(res => {
+                console.log('artifact data',res.data);
+                setLikedArtifacts(res.data);
+                setLoading(false);
+            })
+            .catch(error => {
+                console.log(error.message);
+                setLoading(false);
+            })
         }
     }, [user])
 

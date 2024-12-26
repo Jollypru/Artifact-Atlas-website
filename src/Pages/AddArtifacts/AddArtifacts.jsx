@@ -2,9 +2,11 @@ import React, { useContext } from 'react';
 import { AuthContext } from '../../providers/AuthProvider';
 import Swal from 'sweetalert2';
 import { Helmet } from 'react-helmet';
+import useAxiosSecure from '../../hooks/useAxiosSecure';
 
 const AddArtifacts = () => {
     const {user} = useContext(AuthContext);
+    const axiosSecure = useAxiosSecure();
 
     const handleAddArtifact = e => {
         e.preventDefault();
@@ -32,7 +34,11 @@ const AddArtifacts = () => {
                   form.reset();
             }
         })
+        .catch(error => {
+            console.log('error adding artifact', error);
+        })
     }
+    
     return (
         <div>
             <Helmet><title>Add Artifact | Artifact Atlas</title></Helmet>

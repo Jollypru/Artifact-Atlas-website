@@ -2,11 +2,13 @@ import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { useNavigate, useParams } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import useAxiosSecure from '../../hooks/useAxiosSecure';
 
 const UpdateArtifact = () => {
     const { id } = useParams();
     const [artifact, setArtifact] = useState({});
     const navigate = useNavigate();
+    const axiosSecure = useAxiosSecure();
 
     useEffect(() => {
         fetch(`http://localhost:5000/artifacts/${id}`)
@@ -41,6 +43,14 @@ const UpdateArtifact = () => {
                 navigate('/myArtifacts');
             }
         })
+        .catch(error => {
+            Swal.fire({
+                icon: 'error',
+                title: 'Something went wrong',
+                text: 'Please try again later.',
+              });
+        })
+
     }
     return (
         <div>

@@ -3,6 +3,7 @@ import { useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
 import { toast } from 'react-toastify';
 import { Helmet } from 'react-helmet';
+import useAxiosSecure from '../../hooks/useAxiosSecure';
 
 const ArtifactDetails = () => {
     const artifacts = useLoaderData();
@@ -12,6 +13,7 @@ const ArtifactDetails = () => {
     const {user, loading} = useContext(AuthContext);
     const [likeCount, setLikeCount] = useState(initialLikeCount || 0);
     const [isLiked, setIsLiked] = useState(false);
+    const axiosSecure = useAxiosSecure();
 
     const handleLike = () => {
         if (isLiked) return;
@@ -32,6 +34,8 @@ const ArtifactDetails = () => {
                 console.log('like count updated:', data);
                 toast.success(`You have liked ${artifactName} `)
             })
+
+           
     }
 
     if(loading){
