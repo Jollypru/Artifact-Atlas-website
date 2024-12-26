@@ -56,7 +56,7 @@ const Navbar = () => {
                         {links}
                     </ul>
                 </div>
-                <button className=" text-xl"><span className='text-2xl text-purple-500 font-semibold'>A</span>rtifact <span className='text-2xl text-purple-500 font-semibold'>A</span>tlas</button>
+                <button><span className='text-2xl text-purple-500 font-semibold'>A</span>RTIFACT <span className='text-2xl text-purple-500 font-semibold'>A</span>TLAS</button>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="flex gap-5 px-1">
