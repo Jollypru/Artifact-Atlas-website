@@ -14,7 +14,7 @@ const Navbar = () => {
             user ?
                 <li className='relative group'>
                     <NavLink to='/myProfile'>My Profile</NavLink>
-                    <ul className='absolute hidden group-hover:block w-40 ml-2'>
+                    <ul className='absolute hidden group-hover:block w-48 rounded-md mt-8 lg:mt-0 lg:pl-2 bg-violet-50 '>
                         <li className='hover:text-purple-400'><NavLink to='/myArtifacts'>My Artifacts</NavLink></li>
                         <li className='hover:text-purple-400'><NavLink to='/likedArtifacts'>Liked Artifacts</NavLink></li>
                     </ul>
@@ -33,7 +33,7 @@ const Navbar = () => {
             })
     }
     return (
-        <div className="navbar bg-slate-100 sticky top-0 px-5">
+        <div className="navbar bg-slate-100 sticky top-0 z-50 md:px-5 lg:px-10">
             <div className="navbar-start">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -52,11 +52,11 @@ const Navbar = () => {
                     </div>
                     <ul
                         tabIndex={0}
-                        className="menu menu-sm dropdown-content bg-violet-200 rounded-box z-[1] mt-3 w-52 p-2 shadow">
+                        className="menu menu-sm dropdown-content bg-violet-200 rounded-box mt-4 w-52 p-2 shadow">
                         {links}
                     </ul>
                 </div>
-                <a className="btn btn-ghost text-xl">Artifact Atlas</a>
+                <button className=" text-xl"><span className='text-2xl text-purple-500 font-semibold'>A</span>rtifact <span className='text-2xl text-purple-500 font-semibold'>A</span>tlas</button>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="flex gap-5 px-1">

@@ -13,8 +13,8 @@ const Testimonial = () => {
             <div className="container px-10 py-12 mx-auto">
                 <div className="flex flex-col items-center gap-4">
                     <div className="max-w-2xl mx-auto my-8 space-y-4 text-center">
-                        <h2 className="text-4xl font-bold">What People Are Saying</h2>
-                        <p className="dark:text-gray-600">
+                        <h2 className="text-3xl font-bold">What People Are Saying</h2>
+                        <p>
                             Our platform has inspired countless history enthusiasts to dive deeper into the fascinating world of ancient artifacts and heritage preservation.
                         </p>
                     </div>

@@ -3,8 +3,9 @@ import { AuthContext } from '../../providers/AuthProvider';
 import { NavLink, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { Helmet } from 'react-helmet';
-import axios from 'axios';
 import useAxiosSecure from '../../hooks/useAxiosSecure';
+import { FaRegEye } from "react-icons/fa";
+import { MdOutlineUpdate, MdDeleteForever } from "react-icons/md";
 
 const MyArtifacts = () => {
     const { user} = useContext(AuthContext);
@@ -72,7 +73,7 @@ const MyArtifacts = () => {
                                 <tr>
                                     <th></th>
                                     <th>Artifact Name</th>
-                                    <th>Added At</th>
+                                    <th>Type</th>
                                     <th>Functionalities</th>
                                 </tr>
                             </thead>
@@ -81,11 +82,11 @@ const MyArtifacts = () => {
                                     myArtifacts.map((artifact, index) => <tr key={artifact._id}>
                                         <th>{index + 1}</th>
                                         <td>{artifact.artifactName}</td>
-                                        <td></td>
-                                        <td>
-                                            <NavLink to={`/artifactDetails/${artifact._id}`}><button className='bg-green-500 py-1 px-4 rounded-md text-white mr-5'>View</button></NavLink>
-                                            <NavLink to={`/updateArtifact/${artifact._id}`}><button className='bg-blue-500 py-1 px-4 rounded-md text-white mr-5'>Update</button></NavLink>
-                                            <button onClick={() => handleDelete(artifact._id)} className='bg-red-600 py-1 px-4 rounded-md text-white'>Delete</button>
+                                        <td>{artifact.artifactType}</td>
+                                        <td className='flex flex-col md:flex-row gap-3'>
+                                            <NavLink to={`/artifactDetails/${artifact._id}`}><button className='flex items-center gap-2 border bg-white text-green-500 px-3 py-1 rounded-md'><FaRegEye></FaRegEye>View</button></NavLink>
+                                            <NavLink to={`/updateArtifact/${artifact._id}`}><button className='flex items-center gap-2 border bg-white text-blue-500 py-1 px-3 rounded-md'>< MdOutlineUpdate></MdOutlineUpdate>Update</button></NavLink>
+                                            <button onClick={() => handleDelete(artifact._id)} className='flex items-center gap-2 border bg-white text-red-500 py-1 px-3 rounded-md '><MdDeleteForever></MdDeleteForever>Delete</button>
                                         </td>
                                     </tr>)
                                 }

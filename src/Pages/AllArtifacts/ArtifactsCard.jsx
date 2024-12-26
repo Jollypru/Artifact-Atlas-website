@@ -9,7 +9,7 @@ const ArtifactsCard = ({artifact}) => {
             <div className='h-[300px]'>
                 <img className='h-full w-full rounded-md' src={artifactImage} alt="" />
             </div>
-            <div className='h-[210px]'>
+            <div className='h-[200px]'>
                 <h3 className='text-2xl font-semibold my-4'>{artifactName}</h3>
                 <p>{historicalContext}</p>
                 <p className='mt-2 mb-4'><span className='font-medium'>Created At:</span> {createdAt}</p>

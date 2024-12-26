@@ -23,8 +23,13 @@ const Featured = () => {
     }
 
     return (
-        <div className='text-center' id='featured'>
-            <h3 className='text-3xl text-center font-bold my-5'>Featured Artifacts</h3>
+        <div className='text-center mt-14' id='featured'>
+            <div className="max-w-2xl mx-auto my-8 space-y-4 text-center">
+                <h2 className="text-4xl font-bold">Featured Artifacts</h2>
+                <p className="px-5">
+                    Unveiling the essence of history, our featured artifact is a remarkable piece that tells a story of ancient civilizations, cultural heritage, and timeless artistry.
+                </p>
+            </div>
             <div className='w-11/12 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
                 {
                     topArtifacts.map(artifact => (
