@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
 import { toast } from 'react-toastify';
@@ -15,26 +15,27 @@ const ArtifactDetails = () => {
     const [isLiked, setIsLiked] = useState(false);
     const axiosSecure = useAxiosSecure();
 
-    const handleLike = () => {
-        if (isLiked) return;
 
-        const updateLikeCount = likeCount + 1;
-        setLikeCount(updateLikeCount);
-        setIsLiked(true);
+    const handleToggleLike = () => {
+        
+        const  action = isLiked ? 'dislike' : 'like';
+        const updateLikeCount = isLiked ? likeCount -1 : likeCount + 1;
 
-        fetch(`http://localhost:5000/artifacts/${_id}`, {
-            method: 'PATCH',
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify({ likeCount: updateLikeCount , userEmail: user.email})
+        axiosSecure.patch(`/artifacts/${_id}`, {
+            likeCount: updateLikeCount ,
+            userEmail: user.email,
+            action
         })
-            .then(res => res.json())
-            .then(data => {
-                console.log('like count updated:', data);
-                toast.success(`You have liked ${artifactName} `)
-            })
-
+        .then(()=> {
+            toast.success(`You have ${isLiked ? 'disliked' : 'liked'} ${artifactName} `);
+            setLikeCount(updateLikeCount);
+            setIsLiked(!isLiked);
+        })
+        .catch((error) => {
+            console.log('error updating like count:', error);
+            toast.error('You have already liked this item.');
+           
+        })
            
     }
 
@@ -56,7 +57,8 @@ const ArtifactDetails = () => {
                 <p><span className='font-medium'>Discovered By:</span> {discoveredBy}</p>
                 <p><span className='font-medium'>Currently located at:</span> {presentLocation}</p>
                 <div className='mt-4 flex gap-4'>
-                    <button onClick={handleLike} className={`py-1 px-10 rounded-md text-white ${isLiked ? 'bg-gray-400' : 'bg-purple-500'}`} disabled={isLiked}>Like</button>
+                    <button onClick={handleToggleLike} className={`py-1 px-10 rounded-md text-white ${isLiked ? 'bg-gray-400' : 'bg-purple-500'}`}>{isLiked ? 'Dislike' : 'Like'}</button>
+
                     <p className="mt-2 text-lg font-medium">Likes: {likeCount}</p>
                 </div>
             </div>

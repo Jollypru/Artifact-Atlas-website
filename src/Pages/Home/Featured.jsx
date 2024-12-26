@@ -5,7 +5,7 @@ const Featured = () => {
     const [topArtifacts, setTopArtifacts] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/top-artifacts')
+        fetch('https://assignment-11-server-omega-ashy.vercel.app/top-artifacts')
             .then(res => res.json())
             .then(data => {
                 setTopArtifacts(data);

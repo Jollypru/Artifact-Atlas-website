@@ -54,7 +54,7 @@ const router = createBrowserRouter([
         {
             path: 'artifactDetails/:id',
             element: <PrivateRoutes><ArtifactDetails></ArtifactDetails></PrivateRoutes>,
-            loader: ({params}) => fetch(`http://localhost:5000/artifacts/${params.id}`)
+            loader: ({params}) => fetch(`https://assignment-11-server-omega-ashy.vercel.app/artifacts/${params.id}`)
         },
         {
             path: 'updateArtifact/:id',

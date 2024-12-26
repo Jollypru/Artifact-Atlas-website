@@ -25,7 +25,7 @@ const UpdateArtifact = () => {
         const formData = new FormData(form);
         const updatedArtifact = Object.fromEntries(formData.entries());
 
-        fetch(`http://localhost:5000/artifacts/update/${id}`, {
+        fetch(`https://assignment-11-server-omega-ashy.vercel.app/artifacts/update/${id}`, {
             method: 'PATCH',
             headers: {
                 'content-type' : 'application/json'

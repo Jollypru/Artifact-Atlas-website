@@ -8,40 +8,14 @@ const googleProvider = new GoogleAuthProvider();
 
 const AuthProvider = ({ children }) => {
 
-    const [user, setUser] = useState();
-    const [loading, setLoading] = useState();
+    const [user, setUser] = useState(null);
+    const [loading, setLoading] = useState(true);
 
     const createUser = (email, password) => {
         setLoading(true);
         return createUserWithEmailAndPassword(auth, email, password);
     }
-
-    useEffect(() => {
-        const unsubscribe = onAuthStateChanged(auth, currentUser => {
-            setUser(currentUser);
-            console.log('state captured', currentUser?.email);
-            if (currentUser?.email) {
-                const user = { email: currentUser.email };
-
-                axios.post('http://localhost:5000/jwt', user, { withCredentials: true })
-                    .then(res => {
-                        console.log('login token', res.data);
-                        setLoading(false);
-                    })
-            }
-            else {
-                axios.post('http://localhost:5000/logout', {}, { withCredentials: true })
-                    .then(res => {
-                        console.log('logout', res.data);
-                        setLoading(false);
-                    })
-            }
-
-        })
-        return () => {
-            unsubscribe();
-        }
-    }, [])
+   
 
     const loginUser = (email, password) => {
         setLoading(true);
@@ -55,8 +29,42 @@ const AuthProvider = ({ children }) => {
 
     const logoutUser = () => {
         setLoading(true);
-        return signOut(auth);
+        return signOut(auth).then(() => {
+            setUser(null);
+            setLoading(false);
+        })
     }
+
+    
+    useEffect(() => {
+        const unsubscribe = onAuthStateChanged(auth, currentUser => {
+           
+            console.log('state captured', currentUser?.email);
+            if (currentUser?.email) {
+                const user = { email: currentUser.email };
+
+                axios.post('https://assignment-11-server-omega-ashy.vercel.app/jwt', user, { withCredentials: true })
+                    .then(res =>{
+                        setUser(currentUser);
+                        console.log('login token', res.data);
+                    })
+                    .catch(error => console.log('Error during login token fetch', error))
+                    .finally(() => setLoading(false));
+            }
+            else {
+                axios.post('https://assignment-11-server-omega-ashy.vercel.app/logout', {}, { withCredentials: true })
+                    .then(res => {
+                        console.log('logout', res.data);
+                        setUser(null);
+                       
+                    })
+                    .catch((err) => console.error('Error during logout request:', err))
+                    .finally(() => setLoading(false));
+            }
+
+        })
+        return () => unsubscribe();
+    }, [])
 
     const authInfo = {
         user,

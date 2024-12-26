@@ -15,7 +15,7 @@ const AddArtifacts = () => {
         const initialData = Object.fromEntries(formData.entries());
         console.log(initialData);
 
-        fetch('http://localhost:5000/artifacts', {
+        fetch('https://assignment-11-server-omega-ashy.vercel.app/artifacts', {
             method: 'POST',
             headers: {
                 'content-type' : 'application/json'
@@ -38,7 +38,7 @@ const AddArtifacts = () => {
             console.log('error adding artifact', error);
         })
     }
-    
+
     return (
         <div>
             <Helmet><title>Add Artifact | Artifact Atlas</title></Helmet>
