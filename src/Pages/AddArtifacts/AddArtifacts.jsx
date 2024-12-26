@@ -15,17 +15,18 @@ const AddArtifacts = () => {
         const initialData = Object.fromEntries(formData.entries());
         console.log(initialData);
 
-        fetch('https://assignment-11-server-omega-ashy.vercel.app/artifacts', {
-            method: 'POST',
-            headers: {
-                'content-type' : 'application/json'
-            },
-            body: JSON.stringify(initialData)
-        })
-        .then(res => res.json())
-        .then(data => {
-            console.log(data);
-            if(data.insertedId){
+        // fetch('https://assignment-11-server-omega-ashy.vercel.app/artifacts', {
+        //     method: 'POST',
+        //     headers: {
+        //         'content-type' : 'application/json'
+        //     },
+        //     body: JSON.stringify(initialData)
+        // })
+        axiosSecure.post('https://assignment-11-server-omega-ashy.vercel.app/artifacts', initialData)
+
+        .then((res) => {
+            console.log(res.data);
+            if(res.data.insertedId){
                 Swal.fire({
                     title: "Good job!",
                     text: "Artifact Added Successfully!",

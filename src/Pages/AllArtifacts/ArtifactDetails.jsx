@@ -4,6 +4,7 @@ import { AuthContext } from '../../providers/AuthProvider';
 import { toast } from 'react-toastify';
 import { Helmet } from 'react-helmet';
 import useAxiosSecure from '../../hooks/useAxiosSecure';
+import { FaRegThumbsUp ,FaRegHeart } from "react-icons/fa6";
 
 const ArtifactDetails = () => {
     const artifacts = useLoaderData();
@@ -56,10 +57,9 @@ const ArtifactDetails = () => {
                 <p><span className='font-medium'>Discovered at:</span> {discoveredAt}</p>
                 <p><span className='font-medium'>Discovered By:</span> {discoveredBy}</p>
                 <p><span className='font-medium'>Currently located at:</span> {presentLocation}</p>
-                <div className='mt-4 flex gap-4'>
-                    <button onClick={handleToggleLike} className={`py-1 px-10 rounded-md text-white ${isLiked ? 'bg-gray-400' : 'bg-purple-500'}`}>{isLiked ? 'Dislike' : 'Like'}</button>
-
-                    <p className="mt-2 text-lg font-medium">Likes: {likeCount}</p>
+                <div className='mt-4 flex gap-6'>
+                    <button onClick={handleToggleLike} className={`py-1 px-10 rounded-md text-white ${isLiked ? 'bg-gray-400' : 'bg-purple-500'}`}>{isLiked ? 'Dislike' : <span className='flex items-center gap-1'><FaRegHeart/>Like</span>}</button>
+                    <p className="text-xl font-medium flex items-center gap-2"><FaRegThumbsUp></FaRegThumbsUp> {likeCount}</p>
                 </div>
             </div>
         </div>

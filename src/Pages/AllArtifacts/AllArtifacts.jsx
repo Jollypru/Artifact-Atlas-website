@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import ArtifactsCard from './ArtifactsCard';
 import { Helmet } from 'react-helmet';
+import { TailSpin } from 'react-loader-spinner';
 
 const AllArtifacts = () => {
     const [artifacts, setArtifacts] = useState([]);
@@ -49,7 +50,9 @@ const AllArtifacts = () => {
 
             {
                 loading ? (
-                    <p className='text-center'><span className="loading loading-spinner loading-lg"></span></p>
+                   <div className='flex justify-center items-center'>
+                    <TailSpin height='50' width='50' color='#4fa94d' ariaLabel='loading'></TailSpin>
+                   </div>
                 ) : (
                 <div className='w-11/12 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
                     {

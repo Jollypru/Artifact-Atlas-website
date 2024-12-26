@@ -11,6 +11,7 @@ const Banner = () => {
             title: 'Discover Ancient Artifacts',
             description: 'Explore the treasures of the past with our collection.',
             image: 'https://i.ibb.co.com/JsNMtpL/female-visiting-the-iconic-fifteen-moai-statues-of-ahu-tongariki-on-easter-island-chile-south-americ.jpg',
+            welcomeText: 'Welcome to Artifact Atlas'
         },
         {
             title: 'Preserve History',
@@ -40,9 +41,14 @@ const Banner = () => {
                         <SwiperSlide key={index}>
                             <div className='text-center  mx-auto relative'>
                                 <img className='h-[200px] md:h-[300px] lg:h-[450px] w-full' src={slide.image} alt="" />
-                                <div className='absolute inset-0 flex flex-col items-center justify-center text-white bg-black bg-opacity-40'>
-                                    <h3 className='text-3xl md:text-5xl font-bold'>{slide.title}</h3>
-                                    <p className='px-5'>{slide.description}</p>
+                                <div className='absolute inset-0 flex flex-col items-center justify-center text-white bg-black bg-opacity-50'>
+                                    {
+                                        index === 0 && (
+                                            <h2 className='text-3xl mb-5 md:text-5xl md:mb-10 lg:text-6xl font-bold lg:mb-20'>{slide.welcomeText}</h2>
+                                        )
+                                    }
+                                    <h3 className='text-2xl md:text-4xl lg:text-5xl font-bold'>{slide.title}</h3>
+                                    <p className='px-5 text-sm'>{slide.description}</p>
                                 </div>
                             </div>
                         </SwiperSlide>

@@ -7,24 +7,13 @@ import axios from 'axios';
 import useAxiosSecure from '../../hooks/useAxiosSecure';
 
 const MyArtifacts = () => {
-    const { user } = useContext(AuthContext);
+    const { user} = useContext(AuthContext);
     const [myArtifacts, setMyArtifacts] = useState([]);
     const navigate = useNavigate();
 
     const axiosSecure = useAxiosSecure();
 
     useEffect(() => {
-        // fetch(`http://localhost:5000/myAddedArtifacts?email=${user.email}`)
-        //     .then(res => res.json())
-        //     .then(data => {
-        //         // console.log(data);
-        //         setMyArtifacts(data);
-        //     })
-
-        // axios.get(`http://localhost:5000/myAddedArtifacts?email=${user.email}}`,{withCredentials: true})
-        // .then(res => {
-        //     console.log(res.data);
-        //     setMyArtifacts(res.data)})
 
         axiosSecure.get(`/myAddedArtifacts?email=${user.email}`)
         .then(res => setMyArtifacts(res.data))
@@ -45,7 +34,7 @@ const MyArtifacts = () => {
         .then((result) => {
             if (result.isConfirmed) {
 
-                fetch(`http://localhost:5000/artifacts/${_id}`, {
+                fetch(`https://assignment-11-server-omega-ashy.vercel.app/artifacts/${_id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())
@@ -63,9 +52,6 @@ const MyArtifacts = () => {
                     })
             }
         });
-
-
-
     }
 
 
@@ -74,6 +60,7 @@ const MyArtifacts = () => {
         <div className="overflow-x-auto">
             <Helmet><title>My Artifacts | Artifact Atlas</title></Helmet>
             <h3 className='text-center text-3xl font-bold my-5'>My Added Artifacts</h3>
+            
             {
                 myArtifacts.length === 0 ? (
                     <p>You haven't added any artifact yet. Try adding some artifacts.</p>
