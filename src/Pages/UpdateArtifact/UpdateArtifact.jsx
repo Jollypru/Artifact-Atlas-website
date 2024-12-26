@@ -11,7 +11,7 @@ const UpdateArtifact = () => {
     const axiosSecure = useAxiosSecure();
 
     useEffect(() => {
-        fetch(`http://localhost:5000/artifacts/${id}`)
+        fetch(`https://assignment-11-server-omega-ashy.vercel.app/artifacts/${id}`)
             .then(res => res.json())
             .then(data => {
                 console.log(data);
