@@ -1,6 +1,13 @@
-import React from 'react';
+import Aos from 'aos';
+import React, { useEffect } from 'react';
+import 'aos/dist/aos.css';
 
 const Testimonial = () => {
+
+    useEffect(() => {
+        Aos.init({ duration: 1000 }); 
+    }, []);
+
     return (
         <section className="dark:bg-gray-100 dark:text-gray-800">
             <div className="container px-10 py-12 mx-auto">
@@ -14,7 +21,7 @@ const Testimonial = () => {
                     <div className="p-6 xl:col-span-3">
                         <div className="grid gap-4 md:grid-cols-2">
                             <div className="grid content-center gap-4">
-                                <div className="p-6 rounded shadow-md bg-gray-200">
+                                <div className="p-6 rounded shadow-md bg-gray-200" data-aos="fade-down">
                                     <p>
                                         "Artifact Atlas is a treasure trove for history enthusiasts. I’ve learned so much about global heritage and the significance of preserving ancient artifacts!"
                                     </p>
@@ -26,7 +33,7 @@ const Testimonial = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <div className="p-6 rounded shadow-md bg-violet-400">
+                                <div className="p-6 rounded shadow-md bg-violet-400" data-aos="fade-right">
                                     <p>
                                         "Thanks to Artifact Atlas, I’ve been able to connect with a community that values our shared history. The detailed resources have been invaluable in my studies."
                                     </p>
@@ -40,7 +47,7 @@ const Testimonial = () => {
                                 </div>
                             </div>
                             <div className="grid content-center gap-4">
-                                <div className="p-6 rounded shadow-md bg-violet-400">
+                                <div className="p-6 rounded shadow-md bg-violet-400" data-aos="fade-left">
                                     <p>
                                         "As an educator, Artifact Atlas has provided me with engaging materials to teach my students about ancient cultures and their impact on our modern world. The interactive elements bring history to life."
                                     </p>
@@ -52,7 +59,7 @@ const Testimonial = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <div className="p-6 rounded shadow-md bg-gray-200">
+                                <div className="p-6 rounded shadow-md bg-gray-200" data-aos="fade-up">
                                     <p>
                                         "Artifact Atlas is a window into the past. The platform’s dedication to uncovering and sharing the beauty of history is remarkable. Each artifact tells a story, connecting us with cultures from centuries ago."
                                     </p>

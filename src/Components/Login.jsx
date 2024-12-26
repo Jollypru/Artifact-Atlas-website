@@ -34,7 +34,7 @@ const Login = () => {
         <div className="hero bg-base-300 min-h-screen py-5">
             <Helmet><title>Login | Artifact Atlas</title></Helmet>
             <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl py-5">
-                <h1 className="text-3xl font-bold text-center">Login now!</h1>
+                <h1 className="text-2xl font-medium ml-8 mt-5">Login to our website!</h1>
                 <form onSubmit={handleLogin} className="card-body">
                     <div className="form-control">
                         <label className="label">

@@ -1,17 +1,27 @@
 import React, { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { FaRegThumbsUp } from "react-icons/fa6";
+import { TailSpin } from 'react-loader-spinner';
 
 const Featured = () => {
     const [topArtifacts, setTopArtifacts] = useState([]);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         fetch('https://assignment-11-server-omega-ashy.vercel.app/top-artifacts')
             .then(res => res.json())
             .then(data => {
                 setTopArtifacts(data);
+                setLoading(false);
             })
     }, [])
+
+    if (loading) {
+        <div className='flex justify-center items-center'>
+            <TailSpin height='50' width='50' color='#4fa94d' ariaLabel='loading'></TailSpin>
+        </div>
+    }
+
     return (
         <div className='text-center' id='featured'>
             <h3 className='text-3xl text-center font-bold my-5'>Featured Artifacts</h3>
