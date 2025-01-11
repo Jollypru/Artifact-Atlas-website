@@ -2,13 +2,11 @@ import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { useNavigate, useParams } from 'react-router-dom';
 import Swal from 'sweetalert2';
-import useAxiosSecure from '../../hooks/useAxiosSecure';
 
 const UpdateArtifact = () => {
     const { id } = useParams();
     const [artifact, setArtifact] = useState({});
     const navigate = useNavigate();
-    const axiosSecure = useAxiosSecure();
 
     useEffect(() => {
         fetch(`https://assignment-11-server-omega-ashy.vercel.app/artifacts/${id}`)

@@ -23,7 +23,7 @@ const Featured = () => {
     }
 
     return (
-        <div className='text-center mt-14' id='featured'>
+        <div className='text-center my-14' id='featured'>
             <div className="max-w-2xl mx-auto my-8 space-y-4 text-center">
                 <h2 className="text-4xl font-bold">Featured Artifacts</h2>
                 <p className="px-5">

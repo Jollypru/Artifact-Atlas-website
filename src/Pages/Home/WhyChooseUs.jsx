@@ -8,7 +8,7 @@ const WhyChooseUs = () => {
         }, []);
 
     return (
-        <section class="bg-gray-50 py-12 mt-10">
+        <section class="bg-gray-50 py-12">
             <div class="container mx-auto px-6 lg:px-20">
                 <div class="text-center max-w-2xl mx-auto">
                     <h2 class="text-3xl lg:text-4xl font-bold text-gray-800">

@@ -4,6 +4,7 @@ import Featured from './Featured';
 import { Helmet } from 'react-helmet';
 import Testimonial from './Testimonial';
 import WhyChooseUs from './WhyChooseUs';
+import Heritage from './Heritage';
 
 const Home = () => {
     return (
@@ -13,6 +14,7 @@ const Home = () => {
             </Helmet>
             <Banner></Banner>
             <Featured></Featured>
+            <Heritage></Heritage>
             <WhyChooseUs></WhyChooseUs>
             <Testimonial></Testimonial>
 
