@@ -13,9 +13,9 @@ const Heritage = () => {
                     </p>
                 </div>
 
-                <div className="grid gap-6 md:grid-cols-3">
+                <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4 px-2 md:px-6">
                     {/* Card 1 */}
-                    <div className="p-6 bg-white shadow rounded-lg">
+                    <div className="p-3 bg-white shadow rounded-lg">
                         <img
                             src="https://i.ibb.co.com/b5KVyr3/Great-Pyramid-of-Giza.jpg"
                             alt="Ancient Egypt"
@@ -29,7 +29,7 @@ const Heritage = () => {
                         </p>
                     </div>
                     {/* Card 2 */}
-                    <div className="p-6 bg-white shadow rounded-lg">
+                    <div className="p-3 bg-white shadow rounded-lg">
                         <img
                             src="https://i.ibb.co.com/Px0gc88/Medieval-Castle-Parts.png"
                             alt="Medieval Era"
@@ -43,7 +43,7 @@ const Heritage = () => {
                         </p>
                     </div>
                     {/* Card 3 */}
-                    <div className="p-6 bg-white shadow rounded-lg">
+                    <div className="p-3 bg-white shadow rounded-lg">
                         <img
                             src="https://i.ibb.co.com/hC0ggNs/michelangelo-pieta-1.jpg"
                             alt="Renaissance"
@@ -54,6 +54,19 @@ const Heritage = () => {
                         </h3>
                         <p className="text-gray-600">
                             Witness the rebirth of art, culture, and innovation during the Renaissance.
+                        </p>
+                    </div>
+                    <div className="p-3 bg-white shadow rounded-lg">
+                        <img
+                            src="https://i.ibb.co.com/mHYQDRR/Philipp-Jakob-Loutherbourg-d-J-002.jpg"
+                            alt="Industrial Revolution"
+                            className="w-full h-48 object-cover rounded-md mb-4"
+                        />
+                        <h3 className="text-2xl font-bold text-gray-700 mb-2">
+                            Industrial Revolution
+                        </h3>
+                        <p className="text-gray-600">
+                            Explore the transformative era of industry, technology, and innovation that reshaped the modern world.
                         </p>
                     </div>
                 </div>

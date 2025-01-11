@@ -10,6 +10,7 @@ const Navbar = () => {
         <li><NavLink to='/'>Home</NavLink></li>
         <li><NavLink to='/all-Artifacts'>All Artifacts</NavLink></li>
         <li><NavLink to='/add-Artifacts'>Add Artifacts</NavLink></li>
+        <li><a href="#contact">Contact Us</a></li>
         {
             user ?
                 <li className='relative group'>
