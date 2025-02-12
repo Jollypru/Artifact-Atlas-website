@@ -2,7 +2,7 @@ import React from 'react';
 
 const Footer = () => {
     return (
-        <footer id='contact' className="bg-violet-950 text-white px-10 py-8 mt-10">
+        <footer id='contact' className="bg-[#c77d3a] text-white px-10 py-8 text-sm max-w-screen-xl">
       <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
         {/* Contact Information */}
         <div>
@@ -16,7 +16,7 @@ const Footer = () => {
         {/* Navigation Links */}
         <div>
           <h4 className="text-lg font-bold mb-4">Quick Links</h4>
-          <ul className="space-y-2">
+          <ul>
             <li><a href="/" className="hover:text-purple-300">Home</a></li>
             <li><a href="/#about" className="hover:text-purple-300">About Us</a></li>
             <li><a href="/#featured" className="hover:text-purple-300">Featured Artifacts</a></li>
@@ -35,7 +35,7 @@ const Footer = () => {
               placeholder="Your email"
               className="w-full px-4 py-2 rounded-l-md focus:outline-none"
             />
-            <button className="bg-purple-600 px-4 py-2 rounded-r-md hover:bg-purple-500">
+            <button className="bg-amber-700 px-4 py-2 rounded-r-md hover:bg-amber-600">
               Subscribe
             </button>
           </div>

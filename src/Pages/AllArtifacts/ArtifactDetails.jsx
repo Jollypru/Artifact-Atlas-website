@@ -44,13 +44,13 @@ const ArtifactDetails = () => {
         return <span className="loading loading-spinner loading-lg"></span>
     }
     return (
-        <div className='flex flex-col md:flex-row gap-5 w-11/12 lg:w-2/3 mx-auto bg-purple-200 p-5 lg:p-8 my-6 rounded-md'>
+        <div className='min-h-full flex flex-col md:flex-row gap-5 w-11/12 lg:w-2/3 mx-auto border shadow-xl p-5  my-6 rounded-md'>
             <Helmet><title>Artifact Details | Artifact Atlas</title></Helmet>
             <div className='md:w-1/2'>
                 <img className='h-60 w-full rounded-md' src={artifactImage} alt="" />
             </div>
             <div>
-                <h3 className='text-3xl font-semibold'> {artifactName}</h3>
+                <h3 className='text-3xl font-semibold mb-3'> {artifactName}</h3>
                 <p className='md:text-xl font-medium mb-4'>Artifact Type: {artifactType}</p>
                 <p className='mb-4'>{historicalContext}</p>
                 <p><span className='font-medium'>It was created at:</span> {createdAt}</p>
@@ -58,8 +58,8 @@ const ArtifactDetails = () => {
                 <p><span className='font-medium'>Discovered By:</span> {discoveredBy}</p>
                 <p><span className='font-medium'>Currently located at:</span> {presentLocation}</p>
                 <div className='mt-4 flex gap-6'>
-                    <button onClick={handleToggleLike} className={`py-1 px-10 rounded-md text-white ${isLiked ? 'bg-gray-400' : 'bg-purple-500'}`}>{isLiked ? 'Dislike' : <span className='flex items-center gap-1'><FaRegHeart/>Like</span>}</button>
-                    <p className="text-xl font-medium flex items-center gap-2"><FaRegThumbsUp></FaRegThumbsUp> {likeCount}</p>
+                    <button onClick={handleToggleLike} className={`py-1 px-10 rounded-md text-white ${isLiked ? 'bg-gray-400' : 'bg-amber-600'}`}>{isLiked ? 'Dislike' : <span className='flex items-center gap-1'><FaRegHeart/>Like</span>}</button>
+                    <p className="text-xl font-medium flex items-center gap-2 text-amber-700"><FaRegThumbsUp></FaRegThumbsUp> {likeCount}</p>
                 </div>
             </div>
         </div>

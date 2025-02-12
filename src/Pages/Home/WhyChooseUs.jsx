@@ -8,23 +8,23 @@ const WhyChooseUs = () => {
         }, []);
 
     return (
-        <section class="bg-gray-50 py-12">
-            <div class="container mx-auto px-6 lg:px-20">
+        <section class="bg-gray-50 py-12 max-w-screen-xl">
+            <div class="px-6 lg:px-20">
                 <div class="text-center max-w-2xl mx-auto">
-                    <h2 class="text-3xl lg:text-4xl font-bold text-gray-800">
+                    <h2 class="text-3xl lg:text-4xl font-bold">
                         Why Choose Artifact Atlas?
                     </h2>
-                    <p class="text-gray-600 mt-4">
+                    <p class="mt-2">
                         Explore the past with a platform that combines expert knowledge,
                         engaging content, and a passion for preserving history.
                     </p>
                 </div>
-                <div class="grid gap-8 mt-12 md:grid-cols-2 lg:grid-cols-3">
+                <div class="grid gap-8 mt-8 md:grid-cols-2 lg:grid-cols-3">
                     <div class="bg-white p-6 rounded-lg shadow hover:shadow-md transition duration-200" data-aos="flip-left">
                         <div class="flex items-center justify-center w-16 h-16 bg-indigo-100 text-indigo-500 rounded-full mx-auto">
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
-                                class="w-8 h-8"
+                                className="w-8 h-8"
                                 fill="none"
                                 viewBox="0 0 24 24"
                                 stroke="currentColor"
@@ -49,7 +49,7 @@ const WhyChooseUs = () => {
                         <div class="flex items-center justify-center w-16 h-16 bg-indigo-100 text-indigo-500 rounded-full mx-auto">
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
-                                class="w-8 h-8"
+                                className="w-8 h-8"
                                 fill="none"
                                 viewBox="0 0 24 24"
                                 stroke="currentColor"
@@ -74,7 +74,7 @@ const WhyChooseUs = () => {
                         <div class="flex items-center justify-center w-16 h-16 bg-indigo-100 text-indigo-500 rounded-full mx-auto">
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
-                                class="w-8 h-8"
+                                className="w-8 h-8"
                                 fill="none"
                                 viewBox="0 0 24 24"
                                 stroke="currentColor"

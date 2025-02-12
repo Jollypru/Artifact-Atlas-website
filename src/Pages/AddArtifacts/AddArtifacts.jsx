@@ -34,10 +34,10 @@ const AddArtifacts = () => {
     }
 
     return (
-        <div>
+        <div className='min-h-screen mb-8'>
             <Helmet><title>Add Artifact | Artifact Atlas</title></Helmet>
             <h1 className='text-center text-3xl font-bold my-5'>Add an Artifact</h1>
-            <form onSubmit={handleAddArtifact} className='w-4/5 mx-auto bg-violet-300 p-5 px-10 rounded-md'>
+            <form onSubmit={handleAddArtifact} className='w-4/5 mx-auto border shadow-xl p-5 px-10 rounded-md'>
                 <div className="form-control">
                     <label className="label">
                         <span className="label-text text-lg">Artifact Name</span>
@@ -105,7 +105,7 @@ const AddArtifacts = () => {
                     </label>
                     <input type="email" value={user.email} name='adderEmail' className="input input-bordered input-sm" readOnly />
                 </div>
-                <button className='bg-purple-500 w-full py-1 rounded-md text-white mt-4'>Add Artifact</button>              
+                <button className='bg-amber-700 w-full py-1 rounded-md text-white mt-4'>Add Artifact</button>              
             </form>
         </div>
     );

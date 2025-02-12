@@ -33,7 +33,7 @@ const Testimonial = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <div className="p-6 rounded shadow-md bg-violet-400" data-aos="fade-right">
+                                <div className="p-6 rounded shadow-md bg-[#f6d6a8]" data-aos="fade-right">
                                     <p>
                                         "Thanks to Artifact Atlas, I’ve been able to connect with a community that values our shared history. The detailed resources have been invaluable in my studies."
                                     </p>
@@ -47,7 +47,7 @@ const Testimonial = () => {
                                 </div>
                             </div>
                             <div className="grid content-center gap-4">
-                                <div className="p-6 rounded shadow-md bg-violet-400" data-aos="fade-left">
+                                <div className="p-6 rounded shadow-md bg-[#f6d6a8]" data-aos="fade-left">
                                     <p>
                                         "As an educator, Artifact Atlas has provided me with engaging materials to teach my students about ancient cultures and their impact on our modern world. The interactive elements bring history to life."
                                     </p>

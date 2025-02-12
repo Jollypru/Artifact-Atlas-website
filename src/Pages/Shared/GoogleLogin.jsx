@@ -22,7 +22,7 @@ const GoogleLogin = () => {
     }
     return (
         <div>
-            <button onClick={handleGoogleLogin} className='bg-white border border-black rounded-md text-red-500 text-xl w-full flex items-center justify-center hover:py-1 hover:bg-gray-200 hover:border-0'><img className='w-9 h-9 rounded-full' src="https://i.ibb.co.com/6F88fQg/images-1.png" alt="" />Google</button>
+            <button onClick={handleGoogleLogin} className='bg-white border border-black rounded-md text-red-500 text-xl w-full flex items-center justify-center hover:bg-gray-200'><img className='w-9 h-9 rounded-full' src="https://i.ibb.co.com/6F88fQg/images-1.png" alt="" />Google</button>
         </div>
     );
 };

@@ -1,10 +1,11 @@
 import React, { useContext } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
 
 const Navbar = () => {
 
     const { user, logoutUser } = useContext(AuthContext);
+    const navigate = useNavigate();
 
     const links = <>
         <li><NavLink to='/'>Home</NavLink></li>
@@ -16,8 +17,8 @@ const Navbar = () => {
                 <li className='relative group'>
                     <NavLink to='/myProfile'>My Profile</NavLink>
                     <ul className='absolute hidden group-hover:block w-48 rounded-md mt-8 lg:mt-0 lg:pl-2 bg-violet-50 '>
-                        <li className='hover:text-purple-400'><NavLink to='/myArtifacts'>My Artifacts</NavLink></li>
-                        <li className='hover:text-purple-400'><NavLink to='/likedArtifacts'>Liked Artifacts</NavLink></li>
+                        <li className='hover:text-amber-600'><NavLink to='/myArtifacts'>My Artifacts</NavLink></li>
+                        <li className='hover:text-amber-600'><NavLink to='/likedArtifacts'>Liked Artifacts</NavLink></li>
                     </ul>
                 </li>
                 : ''
@@ -53,14 +54,14 @@ const Navbar = () => {
                     </div>
                     <ul
                         tabIndex={0}
-                        className="menu menu-sm dropdown-content bg-violet-200 rounded-box mt-4 w-52 p-2 shadow">
+                        className="menu menu-sm dropdown-content bg-violet-200 rounded-box mt-4 w-52 p-2 shadow text-sm">
                         {links}
                     </ul>
                 </div>
-                <button><span className='text-2xl text-purple-500 font-semibold'>A</span>RTIFACT <span className='text-2xl text-purple-500 font-semibold'>A</span>TLAS</button>
+                <button onClick={() => navigate('/')}><span className='text-2xl text-amber-600 font-semibold'>A</span>RTIFACT <span className='text-2xl text-amber-600 font-semibold'>A</span>TLAS</button>
             </div>
             <div className="navbar-center hidden lg:flex">
-                <ul className="flex gap-5 px-1">
+                <ul className="flex gap-5 px-1 text-sm">
                     {links}
                 </ul>
             </div>
@@ -68,9 +69,9 @@ const Navbar = () => {
                 {
                     user ? <div className='flex gap-3'>
                         <img src={user.photoURL} title={user.displayName} alt="" className='w-10 h-10 rounded-full' />
-                        <button onClick={handleLogout} className='bg-purple-500 px-5 py-1 rounded-md text-white'>Logout</button>
+                        <button onClick={handleLogout} className='bg-amber-600 px-5 rounded-md text-white'>Logout</button>
                     </div> : <div>
-                        <Link to='/login'><button className='bg-purple-500 px-5 py-1 rounded-md text-white'>Login</button></Link>
+                        <Link to='/login'><button className='bg-amber-600 px-5 py-1 rounded-md text-white'>Login</button></Link>
                     </div>
                 }
             </div>

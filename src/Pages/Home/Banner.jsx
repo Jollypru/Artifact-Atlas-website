@@ -10,7 +10,7 @@ const Banner = () => {
         {
             title: 'Discover Ancient Artifacts',
             description: 'Explore the treasures of the past with our collection.',
-            image: 'https://i.ibb.co.com/JsNMtpL/female-visiting-the-iconic-fifteen-moai-statues-of-ahu-tongariki-on-easter-island-chile-south-americ.jpg',
+            image: 'https://i.ibb.co.com/3YSnVYTW/00xp-machupicchu-super-Jumbo.jpg',
             welcomeText: 'Welcome to Artifact Atlas'
         },
         {
@@ -26,7 +26,7 @@ const Banner = () => {
     ];
 
     return (
-        <div className='mb-10' id='about'>
+        <div id='about' className='max-w-screen-xl mx-auto'>
             <Swiper
                 modules={[Navigation, Pagination, Autoplay]}
                 spaceBetween={30}
@@ -40,13 +40,9 @@ const Banner = () => {
                     slides.map((slide, index) => (
                         <SwiperSlide key={index}>
                             <div className='text-center  mx-auto relative'>
-                                <img className='h-[200px] md:h-[300px] lg:h-[450px] w-full' src={slide.image} alt="" />
+                                <img className='h-[200px] md:h-[300px] lg:h-[480px] w-full' src={slide.image} alt="" />
                                 <div className='absolute inset-0 flex flex-col items-center justify-center text-white bg-black bg-opacity-50'>
-                                    {
-                                        index === 0 && (
-                                            <h2 className='text-3xl mb-5 md:text-5xl md:mb-10 lg:text-6xl font-bold lg:mb-20'>{slide.welcomeText}</h2>
-                                        )
-                                    }
+                                   
                                     <h3 className='text-2xl md:text-4xl lg:text-5xl font-bold'>{slide.title}</h3>
                                     <p className='px-5 text-sm'>{slide.description}</p>
                                 </div>

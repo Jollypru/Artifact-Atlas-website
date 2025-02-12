@@ -27,7 +27,7 @@ const LikedArtifacts = () => {
     }, [user])
 
     return (
-        <div className="container mx-auto my-6 p-5">
+        <div className="container mx-auto my-6 p-5 min-h-screen">
             <Helmet><title>Liked Artifacts | Artifact Atlas</title></Helmet>
             <h1 className="text-3xl font-semibold text-center mb-5">Liked Artifacts</h1>
             {likedArtifacts.length === 0 ? (

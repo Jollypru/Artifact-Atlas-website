@@ -32,19 +32,19 @@ const AllArtifacts = () => {
     },[searchQuery, artifacts]);
 
     return (
-        <div>
+        <div className='min-h-screen bg-base-100 mb-8'>
             <Helmet>
                 <title>All Artifacts | Artifact Atlas</title>
             </Helmet>
-            <h2 className='text-center text-3xl font-bold my-5'>All Artifacts</h2>
+            <h2 className='text-center text-3xl font-bold mt-8 mb-3'>All Artifacts</h2>
 
-            <div className='text-center my-4'>
+            <div className='text-center mb-6'>
                 <input
                     type="text"
                     placeholder="Search artifacts..."
                     value={searchQuery}
                     onChange={e => setSearchQuery(e.target.value)}
-                    className="input input-bordered w-full max-w-md"
+                    className="input input-bordered input-sm w-full max-w-md"
                 />
             </div>
 
@@ -54,7 +54,7 @@ const AllArtifacts = () => {
                     <TailSpin height='50' width='50' color='#4fa94d' ariaLabel='loading'></TailSpin>
                    </div>
                 ) : (
-                <div className='w-11/12 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
+                <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mx-10'>
                     {
                             filteredArtifacts.length > 0 ? (
                                 filteredArtifacts.map(artifact => (

@@ -64,8 +64,11 @@ const Register = () => {
     }
 
     return (
-        <div className="hero bg-base-300 py-5">
+        <div className="hero bg-base-300 min-h-screen px-10 py-5 flex flex-col md:flex-row gap-6 justify-center">
             <Helmet><title>Register | Artifact Atlas</title></Helmet>
+            <div  className='lg:w-1/2'>
+                <img src="https://i.ibb.co.com/xqypZZMv/Sign-up-bro-1.png" alt="" />
+            </div>
             <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl pt-5">
                 <h1 className="text-2xl font-medium ml-8 mt-5">Register to the website!</h1>
                 <form onSubmit={handleRegister} className="card-body">
@@ -94,10 +97,10 @@ const Register = () => {
                         <input type="password" placeholder="password" name='password' className="input input-bordered input-sm" required />
                     </div>
                     <div className="form-control mt-6">
-                        <button className=" bg-purple-500 hover:bg-purple-700 py-1 rounded-md text-white text-xl mb-4">Register</button>
+                        <button className=" bg-amber-700 hover:bg-amber-800 py-1 rounded-md text-white text-xl mb-4">Register</button>
                         <GoogleLogin></GoogleLogin>
                     </div>
-                    <p className='mt-3'>Already have an account? Please <Link to='/login' className='text-blue-500 underline'>Login</Link></p>
+                    <p className='mt-3 text-center'>Already have an account? Please <Link to='/login' className='text-blue-500 underline'>Login</Link></p>
                 </form>
             </div>
         </div>

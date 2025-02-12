@@ -58,13 +58,13 @@ const MyArtifacts = () => {
 
 
     return (
-        <div className="overflow-x-auto">
+        <div className="overflow-x-auto min-h-screen">
             <Helmet><title>My Artifacts | Artifact Atlas</title></Helmet>
             <h3 className='text-center text-3xl font-bold my-5'>My Added Artifacts</h3>
             
             {
                 myArtifacts.length === 0 ? (
-                    <p>You haven't added any artifact yet. Try adding some artifacts.</p>
+                    <p className='text-center'>You haven't added any artifact yet. Try adding some artifacts.</p>
                 ) : (
                     <div>
                         <table className="table w-11/12 lg:w-4/5 mx-auto border">
