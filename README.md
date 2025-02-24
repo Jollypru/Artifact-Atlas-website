@@ -11,6 +11,15 @@
 - **Private Routes** : Certain routes are accessible only to authenticated users.
 - **Responsive Design** : The website is fully responsive for mobile, tablet and laptop.
 
+## Technologies:
+* React.js
+* JavaScript
+* Express.js
+* Node.js
+* MongoDB
+* Jsonwebtoken (JWT)
+* Firebase
+
 ## npm Packages Used:
 - `react-router-dom` : For routing and navigation in the app.
 - `axios`: For making HTTP requests to the backend.
@@ -21,3 +30,15 @@
 - `dotenv`: For environment variable management.
 - `jsonwebtoken`: For creating and verifying JWT tokens for secure API communication.
 
+## Installation & Setup
+### 1️⃣ Clone the Repository
+```
+git clone https://github.com/Jollypru/Artifact-Atlas-website.git
+cd Artifact-Atlas-website
+```
+
+### 2️⃣ Install Dependencies
+```
+npm install
+npm run dev
+```
